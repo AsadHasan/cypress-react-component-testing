@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Component } from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { title: "Empty", imageUrl: "" };
+  }
+  pictureOfTheDay = () => {
+    if (this.state.title === "Empty" && !this.state.imageUrl) {
+      fetch(
+        `${process.env.REACT_APP_URL}?api_key=${process.env.REACT_APP_API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((res) => this.setState({ title: res.title, imageUrl: res.hdurl }))
+        .catch((err) => console.log(err));
+    }
+  };
+  render() {
+    this.pictureOfTheDay();
+    return (
+      <div>
+        <h1>{this.state.title}</h1>
+        <img src={this.state.imageUrl} alt="" />
+      </div>
+    );
+  }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById("root"));
