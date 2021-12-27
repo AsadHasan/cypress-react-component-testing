@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
@@ -47,5 +46,12 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "devDependencies": {
+    "@cypress/react": "^5.12.0",
+    "@cypress/webpack-dev-server": "^1.8.0",
+    "@testing-library/react": "^12.1.2",
+    "cypress": "^9.2.0",
+    "webpack-dev-server": "^4.7.1"
   }
 }
