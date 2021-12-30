@@ -3,20 +3,22 @@ import { mount } from "@cypress/react";
 import App from "./App";
 
 describe("App", () => {
-  it("should contain title heading", () => {
-    mount(<App />);
-    cy.get("[data-cy=Title]").should("be.visible");
-  });
-  it("should contain image element node", () => {
-    mount(<App />);
+  function interceptApiCall() {
     cy.intercept(
       `${process.env.REACT_APP_URL}?api_key=${process.env.REACT_APP_API_KEY}`,
-      {
-        title: "Test image",
-        hdurl:
-          "https://apod.nasa.gov/apod/image/2112/JupiterStorms_JunoGill_1024.jpg",
+      (req) => {
+        req.reply({});
       }
     );
-    cy.get("[data-cy=Image]").should("be.visible");
+  }
+  it("should contain title heading", () => {
+    interceptApiCall();
+    mount(<App title="Test" imageUrl="../public/image.jpg" />);
+    cy.get("[data-cy=Title]").contains("Test");
+  });
+  it("should contain image element node", () => {
+    interceptApiCall();
+    mount(<App title="Test" imageUrl="../public/image.jpg" />);
+    cy.get("[data-cy=Image]").should("exist");
   });
 });

@@ -3,7 +3,8 @@ import { Component } from "react";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "Empty", imageUrl: "" };
+    const { title = "Empty", imageUrl = "" } = this.props;
+    this.state = { title: title, imageUrl: imageUrl };
     this.pictureOfTheDay = this.pictureOfTheDay.bind(this);
   }
   pictureOfTheDay = () => {
