@@ -5,7 +5,7 @@ import App from "./App";
 describe("App", () => {
   it("should contain title heading", () => {
     mount(<App />);
-    cy.get("div>h1").should("be.visible");
+    cy.get("[data-cy=Title]").should("be.visible");
   });
   it("should contain image element node", () => {
     mount(<App />);
@@ -17,6 +17,6 @@ describe("App", () => {
           "https://apod.nasa.gov/apod/image/2112/JupiterStorms_JunoGill_1024.jpg",
       }
     );
-    cy.get("div>img").should("be.visible");
+    cy.get("[data-cy=Image]").should("be.visible");
   });
 });

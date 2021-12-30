@@ -20,8 +20,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <img src={this.state.imageUrl} alt="" />
+        <h1 data-cy="Title">{this.state.title}</h1>
+        <img src={this.state.imageUrl} alt="" data-cy="Image" />
       </div>
     );
   }
