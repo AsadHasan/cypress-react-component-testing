@@ -21,4 +21,20 @@ describe("App", () => {
     mount(<App title="Test" imageUrl="../public/image.jpg" />);
     cy.get("[data-cy=Image]").should("exist");
   });
+  it("should show description toggle button", () => {
+    interceptApiCall();
+    mount(
+      <App
+        title="Test"
+        imageUrl="../public/image.jpg"
+        buttonText="Show description"
+        descrition="Test description"
+      />
+    );
+    const button = "[data-cy=description-button]";
+    cy.get(button)
+      .contains("Show description")
+      .click({ force: true })
+      .contains("Hide description");
+  });
 });
