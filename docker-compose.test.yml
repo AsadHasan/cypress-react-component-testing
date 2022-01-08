@@ -2,14 +2,13 @@ version: '3.4'
 
 services:
   practiceapp:
-    image: practiceapp
+    image: component-tests
     build:
       context: .
-      target: release
+      target: test
       dockerfile: ./Dockerfile
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
       REACT_APP_URL: ${REACT_APP_URL}
       REACT_APP_API_KEY: ${REACT_APP_API_KEY}
-    ports:
-      - 3000:3000
+    command: [ "npm", "test" ]
