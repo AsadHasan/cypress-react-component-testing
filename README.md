@@ -1,6 +1,6 @@
 # Cypress React Component Tests
 
-Basic component tests using the currently experimental `Cypress Component Testing` library, to test individual `React` components of a very basic app created using the `Create-React-App` tool (app calls the NASA 'picture of the day' API, and displays image title as heading and the image itself, and offers a button to toggle the detailed description of the image).
+Basic component tests using the currently experimental `Cypress Component Testing` library, to test individual `React` components of a very basic app (which calls the NASA 'picture of the day' API, and displays image title as heading and the image itself, and offers a button to toggle the detailed description of the image) created using the `Create-React-App` tool and deployed on Heroku (https://simple-react-app-123456.herokuapp.com/).
 
 ## Run the app locally
 
