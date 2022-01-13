@@ -1,5 +1,4 @@
 import { Component } from "react";
-require("dotenv-defaults").config();
 
 class App extends Component {
   constructor(props) {
