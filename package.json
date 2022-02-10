@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@cypress/react": "^5.12.3",
-    "@cypress/webpack-dev-server": "^1.8.0",
+    "@cypress/webpack-dev-server": "^1.8.1",
     "cypress": "^9.4.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
