@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@cypress/react": "^5.12.4",
+    "@cypress/react": "^5.12.5",
     "@cypress/webpack-dev-server": "^1.8.4",
     "cypress": "^9.6.1",
     "husky": "^8.0.1",
